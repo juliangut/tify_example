@@ -11,8 +11,8 @@ use Interop\Container\ContainerInterface;
 use Jgut\Pusher\Entity\DeviceEntity;
 use Jgut\Pusher\Repository\DeviceRepository;
 use Jgut\Slim\Doctrine\EntityManagerBuilder;
-use Jgut\Tify\Adapter\Gcm\GcmAdapter;
 use Jgut\Tify\Adapter\Apns\ApnsAdapter;
+use Jgut\Tify\Adapter\Gcm\GcmAdapter;
 use Jgut\Tify\Service;
 use Psr7Middlewares\Middleware\Cors;
 use Ramsey\Uuid\Doctrine\UuidType;
@@ -69,5 +69,5 @@ return [
                 'POST' => true,
                 'PUT' => true,
             ]);
-    }
+    },
 ];

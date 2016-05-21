@@ -46,6 +46,5 @@ abstract class AbstractController
         } catch (\Exception $exception) {
             throw new \RuntimeException(str_replace(' option', ' parameter', $exception->getMessage()), 0, $exception);
         }
-
     }
 }

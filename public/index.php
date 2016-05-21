@@ -12,10 +12,10 @@ require __DIR__ . '/../vendor/autoload.php';
 use Jgut\Pusher\App;
 use Jgut\Pusher\Controller\DeviceController;
 use Jgut\Pusher\Controller\NotificationController;
-use Psr7Middlewares\Middleware\Cors;
-use Psr7Middlewares\Middleware\TrailingSlash;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr7Middlewares\Middleware\Cors;
+use Psr7Middlewares\Middleware\TrailingSlash;
 
 $app = new App();
 

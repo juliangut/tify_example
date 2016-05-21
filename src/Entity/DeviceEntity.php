@@ -27,7 +27,6 @@ class DeviceEntity implements \JsonSerializable
     const IOS_TOKEN_PATTERN = '/^[\da-f]{64}$/';
 
     /**
-     *
      * @ORM\Id
      * @ORM\Column(type="uuid")
      * @ORM\GeneratedValue(strategy="CUSTOM")

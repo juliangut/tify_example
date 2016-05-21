@@ -83,7 +83,7 @@ class NotificationController extends AbstractController
                             break;
                     }
 
-                    return null;
+                    return;
                 },
                 $devices
             );
