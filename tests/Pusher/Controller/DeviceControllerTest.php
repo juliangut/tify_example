@@ -23,7 +23,7 @@ class DeviceControllerTest extends \PHPUnit_Framework_TestCase
 {
     public function testSave()
     {
-        $repository = $this->getMock(DeviceRepository::class, [], [], '', false);
+        $repository = $this->getMockBuilder(DeviceRepository::class)->disableOriginalConstructor()->getMock();
         $repository->expects(self::once())->method('findOneBy')->will(self::returnValue(null));
         $repository->expects(self::once())->method('saveDevice');
 
@@ -32,7 +32,7 @@ class DeviceControllerTest extends \PHPUnit_Framework_TestCase
             'platform' => 'android',
         ];
 
-        $request = $this->getMock(ServerRequestInterface::class, [], [], '', false);
+        $request = $this->getMockBuilder(ServerRequestInterface::class)->disableOriginalConstructor()->getMock();
         $request->expects(self::once())->method('getParsedBody')->will(self::returnValue($parameters));
 
         $controller = new DeviceController($repository);
@@ -54,7 +54,7 @@ class DeviceControllerTest extends \PHPUnit_Framework_TestCase
             ->setToken('bbbb')
             ->setPlatform('ios');
 
-        $repository = $this->getMock(DeviceRepository::class, [], [], '', false);
+        $repository = $this->getMockBuilder(DeviceRepository::class)->disableOriginalConstructor()->getMock();
         $repository->expects(self::once())->method('findOneBy')->will(self::returnValue($device));
 
         $parameters = [
@@ -62,7 +62,7 @@ class DeviceControllerTest extends \PHPUnit_Framework_TestCase
             'platform' => 'ios',
         ];
 
-        $request = $this->getMock(ServerRequestInterface::class, [], [], '', false);
+        $request = $this->getMockBuilder(ServerRequestInterface::class)->disableOriginalConstructor()->getMock();
         $request->expects(self::once())->method('getParsedBody')->will(self::returnValue($parameters));
 
         $controller = new DeviceController($repository);
@@ -84,7 +84,7 @@ class DeviceControllerTest extends \PHPUnit_Framework_TestCase
             ->setToken('bbbb')
             ->setPlatform('ios');
 
-        $repository = $this->getMock(DeviceRepository::class, [], [], '', false);
+        $repository = $this->getMockBuilder(DeviceRepository::class)->disableOriginalConstructor()->getMock();
         $repository->expects(self::once())->method('findOneBy')->will(self::returnValue($device));
         $repository->expects(self::once())->method('saveDevice');
 
@@ -93,7 +93,7 @@ class DeviceControllerTest extends \PHPUnit_Framework_TestCase
             'previous_token' => 'bbbb',
         ];
 
-        $request = $this->getMock(ServerRequestInterface::class, [], [], '', false);
+        $request = $this->getMockBuilder(ServerRequestInterface::class)->disableOriginalConstructor()->getMock();
         $request->expects(self::once())->method('getParsedBody')->will(self::returnValue($parameters));
 
         $controller = new DeviceController($repository);
@@ -112,7 +112,7 @@ class DeviceControllerTest extends \PHPUnit_Framework_TestCase
      */
     public function testNoDeviceUpdate()
     {
-        $repository = $this->getMock(DeviceRepository::class, [], [], '', false);
+        $repository = $this->getMockBuilder(DeviceRepository::class)->disableOriginalConstructor()->getMock();
         $repository->expects(self::once())->method('findOneBy')->will(self::returnValue(null));
 
         $parameters = [
@@ -120,7 +120,7 @@ class DeviceControllerTest extends \PHPUnit_Framework_TestCase
             'previous_token' => 'bbbb',
         ];
 
-        $request = $this->getMock(ServerRequestInterface::class, [], [], '', false);
+        $request = $this->getMockBuilder(ServerRequestInterface::class)->disableOriginalConstructor()->getMock();
         $request->expects(self::once())->method('getParsedBody')->will(self::returnValue($parameters));
 
         $controller = new DeviceController($repository);

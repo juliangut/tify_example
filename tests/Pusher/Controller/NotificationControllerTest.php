@@ -23,10 +23,10 @@ class NotificationControllerTest extends \PHPUnit_Framework_TestCase
 {
     public function testNoDevices()
     {
-        $repository = $this->getMock(DeviceRepository::class, [], [], '', false);
+        $repository = $this->getMockBuilder(DeviceRepository::class)->disableOriginalConstructor()->getMock();
         $repository->expects(self::once())->method('findAll')->will(self::returnValue(null));
 
-        $service = $this->getMock(Service::class, [], [], '', null);
+        $service = $this->getMockBuilder(Service::class)->disableOriginalConstructor()->getMock();
         $service->expects(self::once())->method('push')->will(self::returnValue([]));
 
         $controller = new NotificationController($repository, $service);
@@ -38,7 +38,7 @@ class NotificationControllerTest extends \PHPUnit_Framework_TestCase
                 'param1' => 'value1',
             ],
         ];
-        $request = $this->getMock(ServerRequestInterface::class, [], [], '', false);
+        $request = $this->getMockBuilder(ServerRequestInterface::class)->disableOriginalConstructor()->getMock();
         $request->expects(self::once())->method('getParsedBody')->will(self::returnValue($parameters));
 
         /** @var Response $response */
@@ -60,10 +60,10 @@ class NotificationControllerTest extends \PHPUnit_Framework_TestCase
             new DeviceEntity(),
         ];
 
-        $repository = $this->getMock(DeviceRepository::class, [], [], '', false);
+        $repository = $this->getMockBuilder(DeviceRepository::class)->disableOriginalConstructor()->getMock();
         $repository->expects(self::once())->method('findBy')->will(self::returnValue($devices));
 
-        $service = $this->getMock(Service::class, [], [], '', null);
+        $service = $this->getMockBuilder(Service::class)->disableOriginalConstructor()->getMock();
         $service->expects(self::once())->method('push')->will(self::returnValue([]));
 
         $controller = new NotificationController($repository, $service);
@@ -76,7 +76,7 @@ class NotificationControllerTest extends \PHPUnit_Framework_TestCase
                 'param1' => 'value1',
             ],
         ];
-        $request = $this->getMock(ServerRequestInterface::class, [], [], '', false);
+        $request = $this->getMockBuilder(ServerRequestInterface::class)->disableOriginalConstructor()->getMock();
         $request->expects(self::once())->method('getParsedBody')->will(self::returnValue($parameters));
 
         /** @var Response $response */

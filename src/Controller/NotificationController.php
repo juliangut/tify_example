@@ -69,7 +69,7 @@ class NotificationController extends AbstractController
         }
 
         /* @var DeviceEntity[] $devices */
-        if ($devices) {
+        if (!count($devices)) {
             /* @var \Jgut\Tify\Receiver\AbstractReceiver[] $receivers */
             $receivers = array_map(
                 function (DeviceEntity $device) {
