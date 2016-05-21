@@ -1,4 +1,4 @@
-[![PHP version](https://img.shields.io/badge/PHP-%3E%3D5.5-8892BF.svg?style=flat-square)](http://php.net)
+[![PHP version](https://img.shields.io/badge/PHP-%3E%3D5.6-8892BF.svg?style=flat-square)](http://php.net)
 [![License](https://img.shields.io/github/license/juliangut/tify_example.svg?style=flat-square)](https://github.com//tify_example/blob/master/LICENSE)
 
 [![Build status](https://img.shields.io/travis/juliangut/tify_example.svg?style=flat-square)](https://travis-ci.org/juliangut/tify_example)
