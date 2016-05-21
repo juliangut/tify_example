@@ -40,7 +40,7 @@ class AbstractControllerTest extends \PHPUnit_Framework_TestCase
             'param1' => 'value1',
         ];
 
-        $request = $this->getMock(ServerRequestInterface::class, [], [], '', null);
+        $request = $this->getMock(ServerRequestInterface::class, [], [], '', false);
         $request->expects(self::once())->method('getParsedBody')->will(self::returnValue($parameters));
 
         self::assertEquals($parameters, $method->invokeArgs($this->controller, [$request, ['param1'], [], ['param1']]));
@@ -55,7 +55,7 @@ class AbstractControllerTest extends \PHPUnit_Framework_TestCase
         $method = $reflection->getMethod('resolveRequestParameters');
         $method->setAccessible(true);
 
-        $request = $this->getMock(ServerRequestInterface::class, [], [], '', null);
+        $request = $this->getMock(ServerRequestInterface::class, [], [], '', false);
         $request->expects(self::once())->method('getParsedBody')->will(self::returnValue([]));
 
         $method->invokeArgs($this->controller, [$request, ['param1'], [], ['param1']]);

@@ -23,7 +23,7 @@ class NotificationControllerTest extends \PHPUnit_Framework_TestCase
 {
     public function testNoDevices()
     {
-        $repository = $this->getMock(DeviceRepository::class, [], [], '', null);
+        $repository = $this->getMock(DeviceRepository::class, [], [], '', false);
         $repository->expects(self::once())->method('findAll')->will(self::returnValue(null));
 
         $service = $this->getMock(Service::class, [], [], '', null);
@@ -38,7 +38,7 @@ class NotificationControllerTest extends \PHPUnit_Framework_TestCase
                 'param1' => 'value1',
             ],
         ];
-        $request = $this->getMock(ServerRequestInterface::class, [], [], '', null);
+        $request = $this->getMock(ServerRequestInterface::class, [], [], '', false);
         $request->expects(self::once())->method('getParsedBody')->will(self::returnValue($parameters));
 
         /** @var Response $response */
@@ -60,7 +60,7 @@ class NotificationControllerTest extends \PHPUnit_Framework_TestCase
             new DeviceEntity(),
         ];
 
-        $repository = $this->getMock(DeviceRepository::class, [], [], '', null);
+        $repository = $this->getMock(DeviceRepository::class, [], [], '', false);
         $repository->expects(self::once())->method('findBy')->will(self::returnValue($devices));
 
         $service = $this->getMock(Service::class, [], [], '', null);
@@ -76,7 +76,7 @@ class NotificationControllerTest extends \PHPUnit_Framework_TestCase
                 'param1' => 'value1',
             ],
         ];
-        $request = $this->getMock(ServerRequestInterface::class, [], [], '', null);
+        $request = $this->getMock(ServerRequestInterface::class, [], [], '', false);
         $request->expects(self::once())->method('getParsedBody')->will(self::returnValue($parameters));
 
         /** @var Response $response */

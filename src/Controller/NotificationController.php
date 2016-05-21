@@ -76,11 +76,9 @@ class NotificationController extends AbstractController
                     switch ($device->getPlatform()) {
                         case DeviceEntity::PLATFORM_ANDROID:
                             return new GcmReceiver($device->getToken());
-                            break;
 
                         case DeviceEntity::PLATFORM_IOS:
                             return new ApnsReceiver($device->getToken());
-                            break;
                     }
 
                     return;
